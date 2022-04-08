@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une recette
+{% endblock %}
+
+{% block body %}
+
+<h1>Créer une recette</h1>
+
+<div class="mb-3">
+    <label for="js_recipe_form_name" class="form-label">Nom</label>
+    <input type="text" class="form-control" id="js_recipe_form_name">
+</div>
+<div class="mb-3">
+    <label for="js_recipe_form_description" class="form-label">Description</label>
+    <textarea class="form-control" id="js_recipe_form_description" rows="3"></textarea>
+</div>
+<div class="mb-3">
+    <label for="js_recipe_form_time" class="form-label">Temps de préparation</label>
+    <input type="time" class="form-control" id="js_recipe_form_time">
+</div>
+<div class="mb-3">
+    <label for="js_recipe_form_step" class="form-label">Etapes</label>
+    <div id="js_recipe_form_step"></div>
+    <button type="button" class="btn btn-success" id="js_recipe_form_step_plus"><i class="bi bi-plus-circle-fill"></i></button>
+</div>
+<div class="mb-3">
+    <label for="js_recipe_form_ingredient" class="form-label">Ingrédients</label>
+    <div id="js_recipe_form_ingredient"></div>
+    <button type="button" class="btn btn-success" id="js_recipe_form_ingredient_plus"><i class="bi bi-plus-circle-fill"></i></button>
+</div>
+
+<button type="button" >Créer la recette</button>
+
+
+{% endblock %}
