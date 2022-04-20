@@ -1,18 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Hello HomeController!
+{% endblock %}
 
 {% block body %}
 
-<h1>Recettes</h1>
+	<h1>{{'les recettes miammiam'|upper}}</h1>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
+	{% include "templatesPart/__navbar.html.twig" %}
+
+	<div class="row">
+		{% for recipe in recipes %}
+			<div class="col-sm-6 card">
+				<img src="{{ asset('/image/upload/b5dba2d4ed8a3820c62d6ed698f191626786acbc78660c3ba9ac6e344687155f.jpg') }}" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">{{recipe.name}}</h5>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">An item</li>
+					<li class="list-group-item">A second item</li>
+					<li class="list-group-item">A third item</li>
+				</ul>
+				<div class="card-body">
+					<a href="#" class="card-link">Card link</a>
+					<a href="#" class="card-link">Another link</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 
 {% endblock %}
 
 
 {% block modal %}
-  
+	{% include "templatesPart/modal/__loginForm.html.twig" %}
 {% endblock %}
