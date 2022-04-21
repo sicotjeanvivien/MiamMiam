@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une recette
+{% endblock %}
+
+
+{% block body %}
+
+	{% include "templatesPart/__navbar.html.twig" %}
+	<h1>{{recipe.name}}</h1>
+	<div class="row mt-5 mb-5 justify-content-center">
+		<div id="carouselExampleControls" class="carousel slide  col-8" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="{{ asset('/image/upload/b5dba2d4ed8a3820c62d6ed698f191626786acbc78660c3ba9ac6e344687155f.jpg') }}" class="d-block w-100" alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="{{ asset('/image/upload/b5dba2d4ed8a3820c62d6ed698f191626786acbc78660c3ba9ac6e344687155f.jpg') }}" class="d-block w-100" alt="...">
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+	</div>
+	<div class="row">
+        <div class="col-12 row justify-content-between">
+        <pre>
+            {{ dump(recipe) }}
+        </pre>
+            {# <div class="col-3 bg-info">{{recipe.time|format_date('h:i')}} </div>
+            <div class="col-3 bg-warning">{{recipe.creator.username}}</div>
+            <div class="col-3 bg-success">{{recipe.created|format_date('dmY')}}</div> #}
+        </div>
+        <div class="col-12 rounded bg-white">
+            <h3>Description : </h3>
+            <p class="fs-4">{{recipe.description}}</p>
+        </div>
+	</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{# {{ encore_entry_script_tags('recipe') }} #}
+{% endblock %}

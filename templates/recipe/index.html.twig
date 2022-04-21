@@ -6,7 +6,7 @@
 
 {% block body %}
 
-	<h1>Créer une recette</h1>
+	{% include "templatesPart/__navbar.html.twig" %}
 
 	<div class="row">
 		<div class="mb-3 col-md-6">
@@ -23,32 +23,32 @@
 				veuillez indiquer un temps...
 			</div>
 		</div>
-	</div>
-	<div class="mb-3">
-		<label for="js_recipe_form_description" class="form-label">Description</label>
-		<textarea class="form-control" id="js_recipe_form_description" rows="3"></textarea>
-		<div id="js_recipe_form_description_error" class="invalid-feedback">
-			veuillez indiquer un temps...
+		<div class="mb-3 col-12">
+			<label for="js_recipe_form_description" class="form-label">Description</label>
+			<textarea class="form-control" id="js_recipe_form_description" rows="3"></textarea>
+			<div id="js_recipe_form_description_error" class="invalid-feedback">
+				veuillez indiquer un temps...
+			</div>
 		</div>
+		<div class="mb-3 col-12">
+			<label for="js_recipe_form_step" class="form-label">Etapes</label>
+			<div id="js_recipe_form_step"></div>
+			<button type="button" class="btn btn-success" id="js_recipe_form_step_plus">
+				<i class="bi bi-plus-circle-fill"></i>
+			</button>
+		</div>
+		<div class="mb-3 col-12">
+			<label for="js_recipe_form_ingredient" class="form-label">Ingrédients</label>
+			<div id="js_recipe_form_ingredient"></div>
+			<button type="button" class="btn btn-success" id="js_recipe_form_ingredient_plus">
+				<i class="bi bi-plus-circle-fill"></i>
+			</button>
+		</div>
+		<div class='col-12 d-flex justify-content-end'>
+			<button type="button" class="btn btn-warning text-danger" id="js_recipe_create">Créer la recette</button>
+		</div>
+		<div class="col-12" id="js_recipe_form_fetch_response" role="alert"></div>
 	</div>
-	<div class="mb-3">
-		<label for="js_recipe_form_step" class="form-label">Etapes</label>
-		<div id="js_recipe_form_step"></div>
-		<button type="button" class="btn btn-success" id="js_recipe_form_step_plus">
-			<i class="bi bi-plus-circle-fill"></i>
-		</button>
-	</div>
-	<div class="mb-3">
-		<label for="js_recipe_form_ingredient" class="form-label">Ingrédients</label>
-		<div id="js_recipe_form_ingredient"></div>
-		<button type="button" class="btn btn-success" id="js_recipe_form_ingredient_plus">
-			<i class="bi bi-plus-circle-fill"></i>
-		</button>
-	</div>
-	<div class='d-flex justify-content-end'>
-		<button type="button" class="btn btn-success" id="js_recipe_create">Créer la recette</button>
-	</div>
-	<div class="" id="js_recipe_form_fetch_response" role="alert"></div>
 
 
 {% endblock %}

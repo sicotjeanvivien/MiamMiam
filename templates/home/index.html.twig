@@ -5,26 +5,33 @@
 
 {% block body %}
 
-	<h1>{{'les recettes miammiam'|upper}}</h1>
-
 	{% include "templatesPart/__navbar.html.twig" %}
 
-	<div class="row">
+	<div class="row row-cols-1 row-cols-md-2 g-4">
 		{% for recipe in recipes %}
-			<div class="col-sm-6 card">
-				<img src="{{ asset('/image/upload/b5dba2d4ed8a3820c62d6ed698f191626786acbc78660c3ba9ac6e344687155f.jpg') }}" class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">{{recipe.name}}</h5>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item">An item</li>
-					<li class="list-group-item">A second item</li>
-					<li class="list-group-item">A third item</li>
-				</ul>
-				<div class="card-body">
-					<a href="#" class="card-link">Card link</a>
-					<a href="#" class="card-link">Another link</a>
+			<div class="col-xl-6">
+				<div class="card">
+					<img src="{{ asset('/image/upload/b5dba2d4ed8a3820c62d6ed698f191626786acbc78660c3ba9ac6e344687155f.jpg') }}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{recipe.name}}</h5>
+						<p class="card-text">{{recipe.description}}</p>
+					</div>
+					<ul class="list-group list-group-flush">
+						{% for ingredient in recipe.ingredients %}
+							<li class="list-group-item">
+								{{ingredient.name}}
+								(
+								<em>{{ingredient.quantity}}
+									{{ingredient.unity}}</em>
+								)
+							</li>
+						{% endfor %}
+					</ul>
+					<div class="card-body">
+						<a href="{{path('app_recipe_show', {'id' : recipe.id})}}" class="card-link">Voir</a>
+						<a href="#" class="card-link">Modifier</a>
+						<a href="#" class="card-link">Supprimer</a>
+					</div>
 				</div>
 			</div>
 		{% endfor %}
